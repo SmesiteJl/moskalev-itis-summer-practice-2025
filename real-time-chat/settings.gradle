@@ -1,1 +1,4 @@
 rootProject.name = 'real-time-chat'
+include ':api'
+include ':db'
+include ':impl'
