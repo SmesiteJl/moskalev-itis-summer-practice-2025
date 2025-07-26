@@ -142,4 +142,6 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij+all,java,gradle
+/real-time-chat/.idea
+/real-time-chat/.idea
+/real-time-chat/.idea

@@ -1,1 +1,7 @@
+<<<<<<< Updated upstream
 rootProject.name = 'real-time-chat'
+=======
+rootProject.name = 'real-time-chat'
+include 'api'
+include 'impl'
+>>>>>>> Stashed changes

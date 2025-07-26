@@ -1,0 +1,12 @@
+type Query {
+  messages: [Message!]!
+}
+
+type Message {
+  id: ID!
+  sender: String!
+  content: String!
+  type: String!
+  timestamp: String!
+  attachmentUrl: String
+}

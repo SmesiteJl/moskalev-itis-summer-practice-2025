@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat</title>
+</head>
+<body>
+<h1>Real-Time chat</h1>
+<input id="msg" type="text" placeholder="Type a message..." />
+<button onclick="send()">Send</button>
+<ul id="chat"></ul>
+
+<script>
+    const socket = new WebSocket("ws://localhost:8085/ws/chat");
+
+    socket.onmessage = (event) => {
+        const msgObj = JSON.parse(event.data);
+        const msg = document.createElement("li");
+
+        let displayText = `[${new Date(msgObj.timestamp).toLocaleTimeString()}] ${msgObj.sender}: `;
+
+        if (msgObj.type === "TEXT") {
+            displayText += msgObj.content;
+        } else if (msgObj.type === "IMAGE" || msgObj.type === "FILE") {
+            displayText += `[Файл] `;
+            if (msgObj.attachmentUrl) {
+                displayText += `<a href="${msgObj.attachmentUrl}" target="_blank">Скачать</a>`;
+            }
+        }
+
+        msg.innerHTML = displayText;
+        document.getElementById("chat").appendChild(msg);
+    };
+
+    function send() {
+        const input = document.getElementById("msg");
+        const message = {
+            sender: "smesitejl",
+            content: input.value,
+            type: "TEXT",
+            timestamp: null,
+            attachmentUrl: null
+        };
+        socket.send(JSON.stringify(message));
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
