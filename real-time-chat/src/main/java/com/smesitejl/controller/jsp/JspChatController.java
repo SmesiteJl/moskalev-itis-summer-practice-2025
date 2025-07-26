@@ -8,6 +8,6 @@ public class JspChatController {
 
     @GetMapping("/jsp-chat")
     public String chatPage() {
-        return "views/chat"; // src/webapp/WEB-INF/views/chat.jsp
+        return "views/chat";
     }
 }

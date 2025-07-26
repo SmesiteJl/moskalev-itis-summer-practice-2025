@@ -29,7 +29,6 @@ public class MessageService {
 
         MessageEntity saved = repository.save(entity);
 
-        // Возвращаем DTO обратно (например, с точным временем сервера)
         dto.setTimestamp(saved.getTimestamp());
         return dto;
     }

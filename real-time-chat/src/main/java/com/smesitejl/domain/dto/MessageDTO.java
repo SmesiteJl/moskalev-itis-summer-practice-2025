@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class MessageDTO {
     private String sender;
     private String content;
-    private String type; // TEXT, IMAGE, FILE
+    private String type; 
     private String attachmentUrl;
     private LocalDateTime timestamp;
 

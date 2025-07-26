@@ -37,7 +37,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) {
         try {
             MessageDTO dto = objectMapper.readValue(message.getPayload(), MessageDTO.class);
-            kafkaProducer.sendToModeration(dto); // 🔄 Отправляем на модерацию
+            kafkaProducer.sendToModeration(dto);
         } catch (Exception e) {
             e.printStackTrace();
         }

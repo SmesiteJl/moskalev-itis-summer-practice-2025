@@ -37,7 +37,7 @@ public class FileUploadController {
             dto.setAttachmentUrl(url);
             dto.setTimestamp(LocalDateTime.now());
 
-            webSocketHandler.broadcast(dto); // Минуем Kafka, это просто тест отправки
+            webSocketHandler.broadcast(dto);
 
             return ResponseEntity.ok(url);
         } catch (Exception e) {
